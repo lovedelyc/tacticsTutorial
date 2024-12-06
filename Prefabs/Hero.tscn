@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://ci3cpqqnaw2dm"]
+[gd_scene load_steps=6 format=3 uid="uid://ci3cpqqnaw2dm"]
 
+[ext_resource type="Script" path="res://Scripts/View Model Component/Unit.gd" id="1_8t4l4"]
 [ext_resource type="Material" uid="uid://b0t5yepy1gc7" path="res://Materials/Ally.tres" id="1_71wd1"]
 [ext_resource type="Material" uid="uid://k0nxd0im7i6n" path="res://Materials/Eyes.tres" id="2_nij5k"]
 
@@ -8,6 +9,9 @@
 [sub_resource type="SphereMesh" id="SphereMesh_2llad"]
 
 [node name="Hero" type="Node3D"]
+script = ExtResource("1_8t4l4")
+
+[node name="Movement" type="Node" parent="."]
 
 [node name="Jumper" type="Node3D" parent="."]
 

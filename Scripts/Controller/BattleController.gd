@@ -7,6 +7,14 @@ class_name BattleController
 @export var stateMachine: StateMachine
 @export var startState: State
 
+#var heroPrefab = preload("res://Prefabs/Hero.tscn")#replaced by @export/PackedScene
+@export var heroPrefab: PackedScene
+
+var currentUnit:Unit
+
+var currentTile:Tile: 
+	get: return board.GetTile(board.pos)
+
 func _ready():
 	stateMachine.ChangeState(startState)
 

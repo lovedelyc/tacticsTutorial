@@ -3,5 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://bqa66xj6lsypj" path="res://Textures/Dirt.png" id="1_82des"]
 
 [resource]
+resource_local_to_scene = true
 albedo_texture = ExtResource("1_82des")
 uv1_scale = Vector3(3, 2, 1)
