@@ -1,0 +1,91 @@
+[gd_scene load_steps=7 format=3 uid="uid://bf2wwnfbfe8v3"]
+
+[ext_resource type="Script" path="res://Scripts/Common/UI/LayoutAnchor.gd" id="1_ei5y5"]
+[ext_resource type="Script" path="res://Scripts/Test/PanelTests2.gd" id="2_dhlb1"]
+[ext_resource type="Script" path="res://Scripts/Common/UI/PanelAnchor.gd" id="3_m2lym"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vhk68"]
+
+[sub_resource type="Resource" id="Resource_f0ksj"]
+script = ExtResource("3_m2lym")
+anchorName = "Show"
+myAnchor = 2
+parentAnchor = 2
+offset = Vector2(20, -20)
+duration = 0.5
+trans = 0
+anchorEase = 2
+
+[sub_resource type="Resource" id="Resource_smvdo"]
+script = ExtResource("3_m2lym")
+anchorName = "Hide"
+myAnchor = 3
+parentAnchor = 2
+offset = Vector2(0, -20)
+duration = 0.5
+trans = 0
+anchorEase = 2
+
+[node name="AnchorTests" type="Node"]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = -1
+anchor_right = 0.33
+anchor_bottom = 1.0
+
+[node name="ParentPanel" type="Panel" parent="."]
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 75.0
+offset_right = -75.0
+offset_bottom = -75.0
+
+[node name="VRect" type="ReferenceRect" parent="ParentPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 3.05176e-05
+offset_right = 3.05176e-05
+border_width = 2.0
+editor_only = false
+
+[node name="HRect" type="ReferenceRect" parent="ParentPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+editor_only = false
+
+[node name="FullRect" type="ReferenceRect" parent="ParentPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+editor_only = false
+
+[node name="AnchorInfo" type="Label" parent="ParentPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -75.0
+text = "Placeholder Text"
+label_settings = SubResource("LabelSettings_vhk68")
+
+[node name="ChildPanel" type="Panel" parent="ParentPanel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ei5y5")
+
+[node name="PanelTestController" type="Node" parent="ParentPanel/ChildPanel" node_paths=PackedStringArray("childPanel", "vbox")]
+script = ExtResource("2_dhlb1")
+childPanel = NodePath("..")
+vbox = NodePath("../../../VBoxContainer")
+animated = true
+anchorList = Array[ExtResource("3_m2lym")]([SubResource("Resource_f0ksj"), SubResource("Resource_smvdo")])
