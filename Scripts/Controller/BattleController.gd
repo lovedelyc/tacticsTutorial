@@ -6,6 +6,7 @@ class_name BattleController
 @export var cameraController: CameraController
 @export var stateMachine: StateMachine
 @export var startState: State
+@export var conversationController: ConversationController
 
 #var heroPrefab = preload("res://Prefabs/Hero.tscn")#replaced by @export/PackedScene
 @export var heroPrefab: PackedScene
