@@ -11,7 +11,9 @@ class_name BattleController
 #var heroPrefab = preload("res://Prefabs/Hero.tscn")#replaced by @export/PackedScene
 @export var heroPrefab: PackedScene
 
-var currentUnit:Unit
+@export var abilityMenuPanelController:AbilityMenuPanelController
+var turn:Turn = Turn.new()
+var units:Array[Unit] = []
 
 var currentTile:Tile: 
 	get: return board.GetTile(board.pos)

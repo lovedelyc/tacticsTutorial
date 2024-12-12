@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bw3byvyiadr53"]
+[gd_scene load_steps=44 format=3 uid="uid://bw3byvyiadr53"]
 
 [ext_resource type="Script" path="res://Scripts/Controller/BattleController.gd" id="1_e0yg5"]
 [ext_resource type="Script" path="res://Scripts/Common/State Machine/StateMachine.gd" id="2_0oya1"]
@@ -10,12 +10,21 @@
 [ext_resource type="Script" path="res://Scripts/Controller/Battle States/SelectUnitState.gd" id="5_ygana"]
 [ext_resource type="Script" path="res://Scripts/Controller/Battle States/MoveSequenceState.gd" id="6_oiw4h"]
 [ext_resource type="Script" path="res://Scripts/Controller/Battle States/CutSceneState.gd" id="7_6lwnt"]
+[ext_resource type="Script" path="res://Scripts/Controller/Battle States/ActionSelectionState.gd" id="8_5yfj3"]
+[ext_resource type="Script" path="res://Scripts/Controller/Battle States/CommandSelectionState.gd" id="9_yrm15"]
 [ext_resource type="Script" path="res://Scripts/Controller/ConversationController.gd" id="10_l711f"]
+[ext_resource type="Script" path="res://Scripts/Controller/Battle States/CategorySelectionState.gd" id="10_y5l0v"]
+[ext_resource type="Script" path="res://Scripts/Controller/Battle States/ExploreState.gd" id="11_2ab14"]
 [ext_resource type="Script" path="res://Scripts/View Model Component/ConversationPanel.gd" id="12_ddj6b"]
 [ext_resource type="Texture2D" uid="uid://iq6hecbtkrfe" path="res://Textures/UI/ConversationPanel.png" id="13_wia67"]
 [ext_resource type="Script" path="res://Scripts/Common/UI/PanelAnchor.gd" id="13_xhddm"]
 [ext_resource type="Texture2D" uid="uid://ca0dkjw4wdpee" path="res://Textures/UI/Avatar.png" id="14_a1i6d"]
 [ext_resource type="Texture2D" uid="uid://xfw0n3ghrj2k" path="res://Textures/UI/MoreConversationArrow.png" id="15_qp3k8"]
+[ext_resource type="Script" path="res://Scripts/Controller/GameObjectPoolController.gd" id="17_k0dkg"]
+[ext_resource type="Script" path="res://Scripts/Controller/AbilityMenuPanelController.gd" id="18_mcl3d"]
+[ext_resource type="Script" path="res://Scripts/View Model Component/AbilityMenuPanel.gd" id="19_ypn5q"]
+[ext_resource type="Texture2D" uid="uid://txgjr5sprxta" path="res://Textures/UI/AbilityMenu.png" id="23_hljsa"]
+[ext_resource type="PackedScene" uid="uid://dvksdmx5oaa8h" path="res://Prefabs/Ability Menu Entry.tscn" id="25_lnucq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_25u64"]
 
@@ -59,6 +68,21 @@ duration = 0.5
 trans = 0
 anchorEase = 2
 
+[sub_resource type="Animation" id="Animation_5e75h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(170, 210)]
+}
+
 [sub_resource type="Animation" id="Animation_ivpy5"]
 resource_name = "Right Arrow Bounce"
 length = 0.5
@@ -75,21 +99,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(170, 210), Vector2(170, 220)]
-}
-
-[sub_resource type="Animation" id="Animation_5e75h"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(170, 210)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s72g1"]
@@ -177,9 +186,40 @@ _data = {
 "RESET": SubResource("Animation_rs5a1")
 }
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ogcqh"]
+content_margin_left = 18.0
+content_margin_top = 13.0
+content_margin_right = 12.0
+content_margin_bottom = 16.0
+texture = ExtResource("23_hljsa")
+texture_margin_left = 44.0
+texture_margin_top = 42.0
+texture_margin_right = 1.0
+texture_margin_bottom = 32.0
+
+[sub_resource type="Resource" id="Resource_yopvm"]
+script = ExtResource("13_xhddm")
+anchorName = "Hide"
+myAnchor = 2
+parentAnchor = 3
+offset = Vector2(0, -20)
+duration = 0.5
+trans = 0
+anchorEase = 2
+
+[sub_resource type="Resource" id="Resource_kqfgw"]
+script = ExtResource("13_xhddm")
+anchorName = "Show"
+myAnchor = 3
+parentAnchor = 3
+offset = Vector2(0, -20)
+duration = 0.5
+trans = 0
+anchorEase = 2
+
 [node name="Battle" type="Node3D"]
 
-[node name="Battle Controller" type="Node" parent="." node_paths=PackedStringArray("board", "inputController", "cameraController", "stateMachine", "startState", "conversationController")]
+[node name="Battle Controller" type="Node" parent="." node_paths=PackedStringArray("board", "inputController", "cameraController", "stateMachine", "startState", "conversationController", "abilityMenuPanelController")]
 script = ExtResource("1_e0yg5")
 board = NodePath("Board")
 inputController = NodePath("Input Controller")
@@ -187,6 +227,7 @@ cameraController = NodePath("Camera Controller")
 stateMachine = NodePath("State Machine")
 startState = NodePath("State Machine/Init Battle State")
 conversationController = NodePath("Conversation Controller")
+abilityMenuPanelController = NodePath("Ability Menu Controller")
 
 [node name="State Machine" type="Node" parent="Battle Controller"]
 script = ExtResource("2_0oya1")
@@ -195,21 +236,43 @@ script = ExtResource("2_0oya1")
 script = ExtResource("3_dxos5")
 cutSceneState = NodePath("../Cut Scene State")
 
-[node name="Move Target State" type="Node" parent="Battle Controller/State Machine" node_paths=PackedStringArray("MoveSequenceState")]
+[node name="Move Target State" type="Node" parent="Battle Controller/State Machine" node_paths=PackedStringArray("MoveSequenceState", "commandSelectionState")]
 script = ExtResource("4_gsf0p")
 MoveSequenceState = NodePath("../Move Sequence State")
+commandSelectionState = NodePath("../Command Selection State")
 
-[node name="Select Unit State" type="Node" parent="Battle Controller/State Machine" node_paths=PackedStringArray("moveTargetState")]
+[node name="Select Unit State" type="Node" parent="Battle Controller/State Machine" node_paths=PackedStringArray("commandSelectionState")]
 script = ExtResource("5_ygana")
-moveTargetState = NodePath("../Move Target State")
+commandSelectionState = NodePath("../Command Selection State")
 
-[node name="Move Sequence State" type="Node" parent="Battle Controller/State Machine" node_paths=PackedStringArray("SelectUnitState")]
+[node name="Move Sequence State" type="Node" parent="Battle Controller/State Machine" node_paths=PackedStringArray("commandSelectionState")]
 script = ExtResource("6_oiw4h")
-SelectUnitState = NodePath("../Select Unit State")
+commandSelectionState = NodePath("../Command Selection State")
 
 [node name="Cut Scene State" type="Node" parent="Battle Controller/State Machine" node_paths=PackedStringArray("selectUnitState")]
 script = ExtResource("7_6lwnt")
 selectUnitState = NodePath("../Select Unit State")
+
+[node name="Action Selection State" type="Node" parent="Battle Controller/State Machine" node_paths=PackedStringArray("commandSelectionState", "categorySelectionState")]
+script = ExtResource("8_5yfj3")
+commandSelectionState = NodePath("../Command Selection State")
+categorySelectionState = NodePath("../Category Selection State")
+
+[node name="Command Selection State" type="Node" parent="Battle Controller/State Machine" node_paths=PackedStringArray("moveTargetState", "categorySelectionState", "selectUnitState", "exploreState")]
+script = ExtResource("9_yrm15")
+moveTargetState = NodePath("../Move Target State")
+categorySelectionState = NodePath("../Category Selection State")
+selectUnitState = NodePath("../Select Unit State")
+exploreState = NodePath("../Explore State")
+
+[node name="Category Selection State" type="Node" parent="Battle Controller/State Machine" node_paths=PackedStringArray("commandSelectionState", "actionSelectionState")]
+script = ExtResource("10_y5l0v")
+commandSelectionState = NodePath("../Command Selection State")
+actionSelectionState = NodePath("../Action Selection State")
+
+[node name="Explore State" type="Node" parent="Battle Controller/State Machine" node_paths=PackedStringArray("commandSelectionState")]
+script = ExtResource("11_2ab14")
+commandSelectionState = NodePath("../Command Selection State")
 
 [node name="Input Controller" type="Node" parent="Battle Controller"]
 script = ExtResource("2_dyq4r")
@@ -401,3 +464,45 @@ libraries = {
 "": SubResource("AnimationLibrary_lmc0p")
 }
 autoplay = "Left Arrow Bounce"
+
+[node name="PoolController" type="Node" parent="Battle Controller"]
+unique_name_in_owner = true
+script = ExtResource("17_k0dkg")
+
+[node name="Ability Menu Controller" type="Node" parent="Battle Controller" node_paths=PackedStringArray("titleLabel", "panel", "entryVbox")]
+script = ExtResource("18_mcl3d")
+entryPrefab = ExtResource("25_lnucq")
+titleLabel = NodePath("Ability Menu Panel/Panel VBox/Title Margin/Title Text")
+panel = NodePath("Ability Menu Panel")
+entryVbox = NodePath("Ability Menu Panel/Panel VBox/Entry VBox")
+
+[node name="Ability Menu Panel" type="PanelContainer" parent="Battle Controller/Ability Menu Controller"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ogcqh")
+script = ExtResource("19_ypn5q")
+anchorList = Array[ExtResource("13_xhddm")]([SubResource("Resource_yopvm"), SubResource("Resource_kqfgw")])
+
+[node name="Panel VBox" type="VBoxContainer" parent="Battle Controller/Ability Menu Controller/Ability Menu Panel"]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="Title Margin" type="MarginContainer" parent="Battle Controller/Ability Menu Controller/Ability Menu Panel/Panel VBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_bottom = 11
+
+[node name="Title Text" type="Label" parent="Battle Controller/Ability Menu Controller/Ability Menu Panel/Panel VBox/Title Margin"]
+layout_mode = 2
+text = "Menu Title"
+
+[node name="Entry VBox" type="VBoxContainer" parent="Battle Controller/Ability Menu Controller/Ability Menu Panel/Panel VBox"]
+layout_mode = 2
+theme_override_constants/separation = 5
