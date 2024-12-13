@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://bw3byvyiadr53"]
+[gd_scene load_steps=45 format=3 uid="uid://bw3byvyiadr53"]
 
 [ext_resource type="Script" path="res://Scripts/Controller/BattleController.gd" id="1_e0yg5"]
 [ext_resource type="Script" path="res://Scripts/Common/State Machine/StateMachine.gd" id="2_0oya1"]
@@ -25,6 +25,7 @@
 [ext_resource type="Script" path="res://Scripts/View Model Component/AbilityMenuPanel.gd" id="19_ypn5q"]
 [ext_resource type="Texture2D" uid="uid://txgjr5sprxta" path="res://Textures/UI/AbilityMenu.png" id="23_hljsa"]
 [ext_resource type="PackedScene" uid="uid://dvksdmx5oaa8h" path="res://Prefabs/Ability Menu Entry.tscn" id="25_lnucq"]
+[ext_resource type="Script" path="res://Scripts/Test/TestItems.gd" id="26_p2h7d"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_25u64"]
 
@@ -506,3 +507,6 @@ text = "Menu Title"
 [node name="Entry VBox" type="VBoxContainer" parent="Battle Controller/Ability Menu Controller/Ability Menu Panel/Panel VBox"]
 layout_mode = 2
 theme_override_constants/separation = 5
+
+[node name="Test" type="Node" parent="."]
+script = ExtResource("26_p2h7d")
