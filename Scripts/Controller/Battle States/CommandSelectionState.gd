@@ -25,7 +25,7 @@ func Confirm():
 			_owner.stateMachine.ChangeState(categorySelectionState)
 		2:
 			_owner.stateMachine.ChangeState(selectUnitState)
-			
+
 func Cancel():
 	if(turn.hasUnitMoved && !turn.lockMove):
 		turn.UndoMove()

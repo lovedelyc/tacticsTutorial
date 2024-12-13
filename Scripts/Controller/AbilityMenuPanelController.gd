@@ -25,7 +25,7 @@ func _DisableNode(node:Node) -> void:
 func _EnableNode(node:Node) -> void:
 	node.process_mode = Node.PROCESS_MODE_INHERIT
 	node.show()
-	
+
 func Show(title:String, options:Array[String]):
 	_EnableNode(panel)
 	Clear()

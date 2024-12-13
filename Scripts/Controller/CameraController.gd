@@ -3,12 +3,22 @@ class_name CameraController
 
 @export var _followSpeed: float = 3.0
 var _follow: Node3D
+
 var _minZoom = 5
 var _maxZoom = 20
 var _zoom = 10
+
 var _minPitch = -90
 var _maxPitch = 0
 
+func _process(delta):
+	if _follow:
+		self.position = self.position.lerp(_follow.position, _followSpeed * delta)
+
+func setFollow(follow: Node3D):
+	if follow:
+		_follow = follow
+	
 func Zoom(scroll: int):
 	_zoom = clamp(_zoom + scroll,_minZoom, _maxZoom )
 	
@@ -36,14 +46,6 @@ func Orbit(direction: Vector2):
 		orbitAngle += direction.y * orbitSpeed * get_process_delta_time()
 		orbitAngle = clamp(orbitAngle,deg_to_rad(_minPitch), deg_to_rad(_maxPitch) )
 		$Heading/Pitch.rotation.x = orbitAngle
-
-func _process(delta):
-	if _follow:
-		self.position = self.position.lerp(_follow.position, _followSpeed * delta)
-
-func setFollow(follow: Node3D):
-	if follow:
-		_follow = follow
 
 func AdjustedMovement(originalPoint:Vector2i):
 	var angle = rad_to_deg($Heading.rotation.y)

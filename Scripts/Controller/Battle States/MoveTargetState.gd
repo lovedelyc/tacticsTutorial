@@ -28,6 +28,6 @@ func OnFire(e:int):
 
 func Zoom(scroll: int):
 	_owner.cameraController.Zoom(scroll)
-	
+
 func Orbit(direction: Vector2):
 	_owner.cameraController.Orbit(direction)

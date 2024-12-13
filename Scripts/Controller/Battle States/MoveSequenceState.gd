@@ -6,7 +6,7 @@ func Enter():
 	super()
 	Sequence()
 
-func Sequence():	
+func Sequence():
 	var m:Movement = turn.actor.get_node("Movement")
 	_owner.cameraController.setFollow(turn.actor)
 	await m.Traverse(_owner.currentTile)
