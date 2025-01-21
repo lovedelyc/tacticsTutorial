@@ -3,6 +3,10 @@ class_name BattleState
 
 var _owner: BattleController
 
+var statPanelController:StatPanelController:
+	get:
+		return _owner.statPanelController
+
 var abilityMenuPanelController:AbilityMenuPanelController:
 	get:
 		return _owner.abilityMenuPanelController
@@ -52,3 +56,23 @@ func Zoom(scroll: int):
 		
 func Orbit(direction: Vector2):
 	pass
+
+func GetUnit(p:Vector2i):
+	var t:Tile = _owner.board.GetTile(p)
+	if t== null || t.content == null:
+		return null
+	return t.content
+
+func RefreshPrimaryStatPanel(p:Vector2i):
+	var target:Unit = GetUnit(p)
+	if target != null:
+		statPanelController.ShowPrimary(target)
+	else:
+		statPanelController.HidePrimary()
+
+func RefreshSecondaryStatPanel(p:Vector2i):
+	var target:Unit = GetUnit(p)
+	if target != null:
+		statPanelController.ShowSecondary(target)
+	else:
+		statPanelController.HideSecondary()
