@@ -3,10 +3,6 @@ class_name BattleState
 
 var _owner: BattleController
 
-var statPanelController:StatPanelController:
-	get:
-		return _owner.statPanelController
-
 var abilityMenuPanelController:AbilityMenuPanelController:
 	get:
 		return _owner.abilityMenuPanelController
@@ -18,6 +14,18 @@ var turn:Turn:
 var units:Array[Unit]:
 	get:
 		return _owner.units
+
+var pos:Vector2i:
+	get:
+		return _owner.board.pos
+
+var board:BoardCreator:
+	get:
+		return _owner.board
+
+var statPanelController:StatPanelController:
+	get:
+		return _owner.statPanelController
 
 func _ready():
 	_owner = get_node("../../")
@@ -42,20 +50,17 @@ func OnMove(e:Vector2i):
 func OnFire(e:int):
 	pass
 
-func SelectTile(p:Vector2i):
-	if _owner.board.pos == p:
-		return
-	
-	_owner.board.pos = p
-	
-func OnQuit():
-	get_tree().quit()
-
 func Zoom(scroll: int):
 	pass
 		
 func Orbit(direction: Vector2):
 	pass
+
+func SelectTile(p:Vector2i):
+	if _owner.board.pos == p:
+		return
+	
+	_owner.board.pos = p
 
 func GetUnit(p:Vector2i):
 	var t:Tile = _owner.board.GetTile(p)
@@ -76,3 +81,6 @@ func RefreshSecondaryStatPanel(p:Vector2i):
 		statPanelController.ShowSecondary(target)
 	else:
 		statPanelController.HideSecondary()
+
+func OnQuit():
+	get_tree().quit()

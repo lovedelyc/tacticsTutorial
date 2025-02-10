@@ -46,7 +46,7 @@ func Hide():
 	panel.SetPosition(HideKey, false)
 	
 	_DisableNode(panel)
-	
+
 func SetLocked(index:int, value:bool):
 	if( index < 0 || index >= menuEntries.size()):
 		return
@@ -70,7 +70,7 @@ func Previous():
 		var index:int = i % menuEntries.size()
 		if SetSelection(index):
 			break
-			
+
 func Dequeue()->AbilityMenuEntry:
 	var p:Poolable = %PoolController.Dequeue(EntryPoolKey)
 	var entry:AbilityMenuEntry = p.get_node("Entry")

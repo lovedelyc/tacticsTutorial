@@ -8,10 +8,10 @@ func Place(target: Tile):
 	#Make sure old tile location is not still pointing to this unit
 	if tile != null && tile.content == self:
 		tile.content = null
-	
+
 	#Link unit and tile references
 	tile = target
-	
+  
 	if target != null:
 		target.content = self
 

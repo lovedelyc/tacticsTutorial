@@ -5,6 +5,7 @@ class_name Tile
 const stepHeight: float = 0.25
 var pos: Vector2i
 var height: int
+
 var content: Node
 var prev: Tile
 var distance: int
@@ -19,7 +20,7 @@ func Match():
 func Grow():
 	height += 1
 	Match()
-	
+
 func Shrink():
 	height -= 1
 	Match()

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://ci3cpqqnaw2dm"]
+[gd_scene load_steps=7 format=3 uid="uid://ci3cpqqnaw2dm"]
 
 [ext_resource type="Script" path="res://Scripts/View Model Component/Unit.gd" id="1_8t4l4"]
 [ext_resource type="Material" uid="uid://b0t5yepy1gc7" path="res://Materials/Ally.tres" id="1_71wd1"]
 [ext_resource type="Material" uid="uid://k0nxd0im7i6n" path="res://Materials/Eyes.tres" id="2_nij5k"]
+[ext_resource type="Script" path="res://Scripts/View Model Component/Ability/Range/ConstantAbilityRange.gd" id="4_hapi3"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_de5rg"]
 
@@ -29,3 +30,12 @@ mesh = SubResource("SphereMesh_2llad")
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.17, 0.32, 0.3)
 material_override = ExtResource("2_nij5k")
 mesh = SubResource("SphereMesh_2llad")
+
+[node name="Abilities" type="Node" parent="."]
+
+[node name="Attack" type="Node" parent="Abilities"]
+
+[node name="Ability Range" type="Node" parent="Abilities/Attack"]
+script = ExtResource("4_hapi3")
+horizontal = 5
+minH = 2

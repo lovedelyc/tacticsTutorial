@@ -18,7 +18,7 @@ func GetAnchor(anchorName: String):
 		if anchor.anchorName == anchorName:
 			return anchor
 	return null
-	
+
 func Display(sd:SpeakerData):
 	speaker.texture = sd.speaker
 	speaker.size = speaker.texture.get_size()

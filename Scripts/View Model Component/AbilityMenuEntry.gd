@@ -1,18 +1,18 @@
 extends Node
 class_name AbilityMenuEntry
 
-@export var bullet:TextureRect
-@export var label: Label
-@export var normalSprite:Texture2D
-@export var selectedSprite:Texture2D
-@export var disabledSprite: Texture2D
-
 enum States
 {
 	NONE = 0,
 	SELECTED = 1 << 0,
 	LOCKED = 1 << 1	
 }
+
+@export var bullet:TextureRect
+@export var label: Label
+@export var normalSprite:Texture2D
+@export var selectedSprite:Texture2D
+@export var disabledSprite: Texture2D
 
 var _state:States
 var State:States :
@@ -37,7 +37,7 @@ var State:States :
 			bullet.texture = normalSprite
 			label.set(font_color, Color.WHITE)
 			label.set(font_outline_color, Color(0.078431, 0.141176, 0.172549)) #rgb:20, 36, 44
-			
+
 var IsLocked:bool :
 	get:
 		return (State & States.LOCKED) != States.NONE
@@ -55,7 +55,7 @@ var IsSelected:bool :
 			State |= States.SELECTED
 		else:
 			State &= ~States.SELECTED
-			
+
 var Title:String :
 	get:
 		return label.text
