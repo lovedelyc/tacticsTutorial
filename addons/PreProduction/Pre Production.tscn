@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://u57cudtxplfa"]
 
-[ext_resource type="Script" path="res://addons/PreProduction/ParseJobs.gd" id="1_yfhn2"]
+[ext_resource type="Script" uid="uid://5dmvpyc1t0lj" path="res://addons/PreProduction/ParseJobs.gd" id="1_yfhn2"]
 
 [node name="PreProduction" type="VBoxContainer"]
 

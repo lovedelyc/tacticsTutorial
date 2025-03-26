@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dvksdmx5oaa8h"]
 
-[ext_resource type="Script" path="res://Scripts/View Model Component/Poolable.gd" id="1_pbscc"]
-[ext_resource type="Script" path="res://Scripts/View Model Component/AbilityMenuEntry.gd" id="2_l7wtv"]
+[ext_resource type="Script" uid="uid://djlpcf6xrwwwt" path="res://Scripts/View Model Component/Poolable.gd" id="1_pbscc"]
+[ext_resource type="Script" uid="uid://b5wyrbkcohs0k" path="res://Scripts/View Model Component/AbilityMenuEntry.gd" id="2_l7wtv"]
 [ext_resource type="Texture2D" uid="uid://ddyn2v6pvt22t" path="res://Textures/UI/MenuBullet.png" id="3_nt644"]
 [ext_resource type="Texture2D" uid="uid://b3oqjaudgdu6u" path="res://Textures/UI/MenuBulletSelected.png" id="4_xf11b"]
 [ext_resource type="Texture2D" uid="uid://bwou7cmn7hkvu" path="res://Textures/UI/MenuBulletLocked.png" id="5_p2kng"]

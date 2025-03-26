@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://ci3cpqqnaw2dm"]
+[gd_scene load_steps=9 format=3 uid="uid://ci3cpqqnaw2dm"]
 
-[ext_resource type="Script" path="res://Scripts/View Model Component/Unit.gd" id="1_8t4l4"]
+[ext_resource type="Script" uid="uid://ctyv3nxr4itei" path="res://Scripts/View Model Component/Unit.gd" id="1_8t4l4"]
 [ext_resource type="Material" uid="uid://b0t5yepy1gc7" path="res://Materials/Ally.tres" id="1_71wd1"]
 [ext_resource type="Material" uid="uid://k0nxd0im7i6n" path="res://Materials/Eyes.tres" id="2_nij5k"]
-[ext_resource type="Script" path="res://Scripts/View Model Component/Ability/Range/ConstantAbilityRange.gd" id="4_hapi3"]
+[ext_resource type="Script" uid="uid://bh08bqnh4ia0s" path="res://Scripts/View Model Component/Ability/Range/ConstantAbilityRange.gd" id="4_hapi3"]
+[ext_resource type="Script" uid="uid://p15b2p3g3jh6" path="res://Scripts/View Model Component/Ability/Area of Effect/LineAbilityArea.gd" id="5_bpn7b"]
+[ext_resource type="Script" uid="uid://bf7ispjibgy5o" path="res://Scripts/View Model Component/Ability/Effect Target/AbilityEffectTarget.gd" id="6_bpn7b"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_de5rg"]
 
@@ -39,3 +41,9 @@ mesh = SubResource("SphereMesh_2llad")
 script = ExtResource("4_hapi3")
 horizontal = 5
 minH = 2
+
+[node name="Ability Area" type="Node" parent="Abilities/Attack"]
+script = ExtResource("5_bpn7b")
+
+[node name="Ability Effect Target" type="Node" parent="Abilities/Attack"]
+script = ExtResource("6_bpn7b")

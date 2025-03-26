@@ -1,34 +1,37 @@
-[gd_scene load_steps=63 format=3 uid="uid://bw3byvyiadr53"]
+[gd_scene load_steps=66 format=3 uid="uid://bw3byvyiadr53"]
 
-[ext_resource type="Script" path="res://Scripts/Controller/BattleController.gd" id="1_e0yg5"]
-[ext_resource type="Script" path="res://Scripts/Common/State Machine/StateMachine.gd" id="2_0oya1"]
-[ext_resource type="Script" path="res://Scripts/Controller/InputController.gd" id="2_dyq4r"]
-[ext_resource type="Script" path="res://Scripts/PreProduction/BoardCreator.gd" id="3_1mtq1"]
-[ext_resource type="Script" path="res://Scripts/Controller/CameraController.gd" id="3_6kflt"]
-[ext_resource type="Script" path="res://Scripts/Controller/Battle States/InitBattleState.gd" id="3_dxos5"]
-[ext_resource type="Script" path="res://Scripts/Controller/Battle States/MoveTargetState.gd" id="4_gsf0p"]
-[ext_resource type="Script" path="res://Scripts/Controller/Battle States/SelectUnitState.gd" id="5_ygana"]
-[ext_resource type="Script" path="res://Scripts/Controller/Battle States/MoveSequenceState.gd" id="6_oiw4h"]
-[ext_resource type="Script" path="res://Scripts/Controller/Battle States/CutSceneState.gd" id="7_6lwnt"]
-[ext_resource type="Script" path="res://Scripts/Controller/Battle States/ActionSelectionState.gd" id="8_5yfj3"]
-[ext_resource type="Script" path="res://Scripts/Controller/Battle States/CommandSelectionState.gd" id="9_yrm15"]
-[ext_resource type="Script" path="res://Scripts/Controller/ConversationController.gd" id="10_l711f"]
-[ext_resource type="Script" path="res://Scripts/Controller/Battle States/CategorySelectionState.gd" id="10_y5l0v"]
-[ext_resource type="Script" path="res://Scripts/Controller/Battle States/ExploreState.gd" id="11_2ab14"]
-[ext_resource type="Script" path="res://Scripts/Controller/Battle States/AbilityTargetState.gd" id="12_agre3"]
-[ext_resource type="Script" path="res://Scripts/View Model Component/ConversationPanel.gd" id="12_ddj6b"]
+[ext_resource type="Script" uid="uid://bubwu1nrcikf7" path="res://Scripts/Controller/BattleController.gd" id="1_e0yg5"]
+[ext_resource type="Script" uid="uid://crfai7kvnpe4f" path="res://Scripts/Common/State Machine/StateMachine.gd" id="2_0oya1"]
+[ext_resource type="Script" uid="uid://by7jse05nv4kk" path="res://Scripts/Controller/InputController.gd" id="2_dyq4r"]
+[ext_resource type="Script" uid="uid://dl3a61xmke2ci" path="res://Scripts/PreProduction/BoardCreator.gd" id="3_1mtq1"]
+[ext_resource type="Script" uid="uid://dwpioq3orus4j" path="res://Scripts/Controller/CameraController.gd" id="3_6kflt"]
+[ext_resource type="Script" uid="uid://d0l8vav860ul" path="res://Scripts/Controller/Battle States/InitBattleState.gd" id="3_dxos5"]
+[ext_resource type="Script" uid="uid://bwis3mwujepdg" path="res://Scripts/Controller/Battle States/MoveTargetState.gd" id="4_gsf0p"]
+[ext_resource type="Script" uid="uid://djixhu78c0noj" path="res://Scripts/Controller/Battle States/SelectUnitState.gd" id="5_ygana"]
+[ext_resource type="Script" uid="uid://xior3c3yoguc" path="res://Scripts/Controller/Battle States/MoveSequenceState.gd" id="6_oiw4h"]
+[ext_resource type="Script" uid="uid://dducq7jeqnof6" path="res://Scripts/Controller/Battle States/CutSceneState.gd" id="7_6lwnt"]
+[ext_resource type="Script" uid="uid://y1kgsemjfcqq" path="res://Scripts/Controller/Battle States/ActionSelectionState.gd" id="8_5yfj3"]
+[ext_resource type="Script" uid="uid://b41c5yowllxlp" path="res://Scripts/Controller/Battle States/CommandSelectionState.gd" id="9_yrm15"]
+[ext_resource type="Script" uid="uid://bi3yenmhmlel8" path="res://Scripts/Controller/ConversationController.gd" id="10_l711f"]
+[ext_resource type="Script" uid="uid://cp8nwuasevc04" path="res://Scripts/Controller/Battle States/CategorySelectionState.gd" id="10_y5l0v"]
+[ext_resource type="Script" uid="uid://bamqet205sum7" path="res://Scripts/Controller/Battle States/ExploreState.gd" id="11_2ab14"]
+[ext_resource type="Script" uid="uid://s0a1ydagb62p" path="res://Scripts/Controller/Battle States/AbilityTargetState.gd" id="12_agre3"]
+[ext_resource type="Script" uid="uid://c57d75tdwy3i0" path="res://Scripts/View Model Component/ConversationPanel.gd" id="12_ddj6b"]
 [ext_resource type="Texture2D" uid="uid://iq6hecbtkrfe" path="res://Textures/UI/ConversationPanel.png" id="13_wia67"]
-[ext_resource type="Script" path="res://Scripts/Common/UI/PanelAnchor.gd" id="13_xhddm"]
+[ext_resource type="Script" uid="uid://b0trkbmpfxsj1" path="res://Scripts/Common/UI/PanelAnchor.gd" id="13_xhddm"]
+[ext_resource type="Script" uid="uid://dtjt4ls5egmsx" path="res://Scripts/Controller/Battle States/ConfirmAbilityTargetState.gd" id="13_xtlnh"]
 [ext_resource type="Texture2D" uid="uid://ca0dkjw4wdpee" path="res://Textures/UI/Avatar.png" id="14_a1i6d"]
+[ext_resource type="Script" uid="uid://ds87hv770st5t" path="res://Scripts/Controller/Battle States/PerformAbilityTargetState.gd" id="14_hibfo"]
+[ext_resource type="Script" uid="uid://bexfnbsqrrmaf" path="res://Scripts/Controller/Battle States/EndFacingState.gd" id="15_hjq1m"]
 [ext_resource type="Texture2D" uid="uid://xfw0n3ghrj2k" path="res://Textures/UI/MoreConversationArrow.png" id="15_qp3k8"]
-[ext_resource type="Script" path="res://Scripts/Controller/GameObjectPoolController.gd" id="17_k0dkg"]
-[ext_resource type="Script" path="res://Scripts/Controller/AbilityMenuPanelController.gd" id="18_mcl3d"]
-[ext_resource type="Script" path="res://Scripts/View Model Component/AbilityMenuPanel.gd" id="19_ypn5q"]
+[ext_resource type="Script" uid="uid://dejtl2bgktroo" path="res://Scripts/Controller/GameObjectPoolController.gd" id="17_k0dkg"]
+[ext_resource type="Script" uid="uid://bxa5ufsaakyom" path="res://Scripts/Controller/AbilityMenuPanelController.gd" id="18_mcl3d"]
+[ext_resource type="Script" uid="uid://d3y26jn5klhgm" path="res://Scripts/View Model Component/AbilityMenuPanel.gd" id="19_ypn5q"]
 [ext_resource type="Texture2D" uid="uid://txgjr5sprxta" path="res://Textures/UI/AbilityMenu.png" id="23_hljsa"]
 [ext_resource type="PackedScene" uid="uid://dvksdmx5oaa8h" path="res://Prefabs/Ability Menu Entry.tscn" id="25_lnucq"]
-[ext_resource type="Script" path="res://Scripts/Controller/StatPanelController.gd" id="26_6i8nw"]
+[ext_resource type="Script" uid="uid://s2a8x8n6nyul" path="res://Scripts/Controller/StatPanelController.gd" id="26_6i8nw"]
 [ext_resource type="Texture2D" uid="uid://b3y62n6prk7ss" path="res://Textures/UI/BlueAttackPanel.png" id="26_vwyy2"]
-[ext_resource type="Script" path="res://Scripts/View Model Component/StatPanel.gd" id="27_yslnp"]
+[ext_resource type="Script" uid="uid://dkij3lboyvm3f" path="res://Scripts/View Model Component/StatPanel.gd" id="27_yslnp"]
 [ext_resource type="Texture2D" uid="uid://d2r1i6rrprbn6" path="res://Textures/UI/RedAttackPanel.png" id="29_oeoj2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_25u64"]
@@ -108,8 +111,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lmc0p"]
 _data = {
-"Left Arrow Bounce": SubResource("Animation_mqgwr"),
-"RESET": SubResource("Animation_rs5a1")
+&"Left Arrow Bounce": SubResource("Animation_mqgwr"),
+&"RESET": SubResource("Animation_rs5a1")
 }
 
 [sub_resource type="Resource" id="Resource_u0loo"]
@@ -187,8 +190,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s72g1"]
 _data = {
-"RESET": SubResource("Animation_5e75h"),
-"Right Arrow Bounce": SubResource("Animation_ivpy5")
+&"RESET": SubResource("Animation_5e75h"),
+&"Right Arrow Bounce": SubResource("Animation_ivpy5")
 }
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ogcqh"]
@@ -348,8 +351,9 @@ script = ExtResource("8_5yfj3")
 commandSelectionState = NodePath("../Command Selection State")
 categorySelectionState = NodePath("../Category Selection State")
 
-[node name="Command Selection State" type="Node" parent="Battle Controller/State Machine" node_paths=PackedStringArray("moveTargetState", "categorySelectionState", "selectUnitState", "exploreState")]
+[node name="Command Selection State" type="Node" parent="Battle Controller/State Machine" node_paths=PackedStringArray("endFacingState", "moveTargetState", "categorySelectionState", "selectUnitState", "exploreState")]
 script = ExtResource("9_yrm15")
+endFacingState = NodePath("../End Facing State")
 moveTargetState = NodePath("../Move Target State")
 categorySelectionState = NodePath("../Category Selection State")
 selectUnitState = NodePath("../Select Unit State")
@@ -365,10 +369,25 @@ abilityTargetState = NodePath("../Ability Target State")
 script = ExtResource("11_2ab14")
 commandSelectionState = NodePath("../Command Selection State")
 
-[node name="Ability Target State" type="Node" parent="Battle Controller/State Machine" node_paths=PackedStringArray("commandSelectionState", "categorySelectionState")]
+[node name="Ability Target State" type="Node" parent="Battle Controller/State Machine" node_paths=PackedStringArray("confirmAbilityTargetState", "categorySelectionState")]
 script = ExtResource("12_agre3")
-commandSelectionState = NodePath("../Command Selection State")
+confirmAbilityTargetState = NodePath("../Confirm Ability Target State")
 categorySelectionState = NodePath("../Category Selection State")
+
+[node name="Confirm Ability Target State" type="Node" parent="Battle Controller/State Machine" node_paths=PackedStringArray("performAbilityState", "abilityTargetState")]
+script = ExtResource("13_xtlnh")
+performAbilityState = NodePath("../Perform Ability State")
+abilityTargetState = NodePath("../Ability Target State")
+
+[node name="Perform Ability State" type="Node" parent="Battle Controller/State Machine" node_paths=PackedStringArray("endFacingState", "commandSelectionState")]
+script = ExtResource("14_hibfo")
+endFacingState = NodePath("../End Facing State")
+commandSelectionState = NodePath("../Command Selection State")
+
+[node name="End Facing State" type="Node" parent="Battle Controller/State Machine" node_paths=PackedStringArray("selectUnitState", "commandSelectionState")]
+script = ExtResource("15_hjq1m")
+selectUnitState = NodePath("../Select Unit State")
+commandSelectionState = NodePath("../Command Selection State")
 
 [node name="Input Controller" type="Node" parent="Battle Controller"]
 script = ExtResource("2_dyq4r")
@@ -467,7 +486,7 @@ texture = ExtResource("15_qp3k8")
 
 [node name="Left Animation" type="AnimationPlayer" parent="Battle Controller/Conversation Controller/Left Edge Conversation Panel/Left More Arrow"]
 libraries = {
-"": SubResource("AnimationLibrary_lmc0p")
+&"": SubResource("AnimationLibrary_lmc0p")
 }
 autoplay = "Left Arrow Bounce"
 
@@ -553,7 +572,7 @@ texture = ExtResource("15_qp3k8")
 
 [node name="Right Animation" type="AnimationPlayer" parent="Battle Controller/Conversation Controller/Right Edge Conversation Panel/Right More Arrow"]
 libraries = {
-"": SubResource("AnimationLibrary_s72g1")
+&"": SubResource("AnimationLibrary_s72g1")
 }
 autoplay = "Right Arrow Bounce"
 

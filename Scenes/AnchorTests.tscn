@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://bf2wwnfbfe8v3"]
 
-[ext_resource type="Script" path="res://Scripts/Common/UI/LayoutAnchor.gd" id="1_ei5y5"]
-[ext_resource type="Script" path="res://Scripts/Test/PanelTests2.gd" id="2_dhlb1"]
-[ext_resource type="Script" path="res://Scripts/Common/UI/PanelAnchor.gd" id="3_m2lym"]
+[ext_resource type="Script" uid="uid://bcf0im5i2fw0w" path="res://Scripts/Common/UI/LayoutAnchor.gd" id="1_ei5y5"]
+[ext_resource type="Script" uid="uid://di2s25wcgqk5r" path="res://Scripts/Test/PanelTests2.gd" id="2_dhlb1"]
+[ext_resource type="Script" uid="uid://b0trkbmpfxsj1" path="res://Scripts/Common/UI/PanelAnchor.gd" id="3_m2lym"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vhk68"]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://p5ncf85ywpd4"]
 
-[ext_resource type="Script" path="res://Scripts/View Model Component/Tile.gd" id="1_it3km"]
+[ext_resource type="Script" uid="uid://75f2h44kym3q" path="res://Scripts/View Model Component/Tile.gd" id="1_it3km"]
 [ext_resource type="Material" uid="uid://bnjbhx3jeygl4" path="res://Materials/Dirt.tres" id="1_nvgbd"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_4yaxm"]

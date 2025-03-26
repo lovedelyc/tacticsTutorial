@@ -1,6 +1,6 @@
 extends BattleState
 
-@export var commandSelectionState: State
+@export var confirmAbilityTargetState: State
 @export var categorySelectionState: State
 
 var tiles = []
@@ -31,10 +31,8 @@ func OnMove(e:Vector2i):
 
 func OnFire(e:int):
 	if(e == 0):
-		turn.hasUnitActed = true
-		if(turn.hasUnitMoved):
-			turn.lockMove = true
-		_owner.stateMachine.ChangeState(commandSelectionState)
+		if(ar.directionOriented || tiles.has(board.GetTile(pos))):
+			_owner.stateMachine.ChangeState(confirmAbilityTargetState)
 	else:
 		_owner.stateMachine.ChangeState(categorySelectionState)
 
